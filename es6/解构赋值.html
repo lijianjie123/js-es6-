@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <ul>
+        <li>aaa</li>
+        <li>aaa</li>
+        <li>aaa</li>
+        <li>aaa</li>
+        <li>aaa</li>
+    </ul>
+    <script>
+    const a = {b:123, c: 456};
+    const b = {name:'b'};
+    const c = {name:'c'};
+
+    //const {b, c} = {b:123, c: 456};
+    a[b] = 123;
+   a[c] = 456  ;
+    // a = {b:123, c: 456}
+
+    //var {b,c} = {b:123, c: 456}
+
+     console.log(a[b] === 456);
+     console.log(a[c] === 456);
+     console.log(a[b] + a[c] === 578);
+     console.log(a[b] + a[c] === 912);
+
+
+var o = {p: 42, q: true};
+var {p, q} = o;
+
+console.log(p); // 42
+console.log(q); // true
+
+
+var lis= document.getElementsByTagName('li'); 
+
+　　//假如这段代码中的lis.length = 5;
+
+      for(var i=0;i<lis.length;i++){
+
+　　　　lis[i].onclick = function(){
+
+　　　　　　console.log(i);
+
+　　　　};
+
+     }
+
+
+
+
+
+      function outer(){
+         var result = new Array();
+         for(var i = 0; i < 2; i++){
+            //定义一个带参函数
+            result[i] = function(num){
+               function innerarg(){
+                  return num;
+               }
+               return innerarg;
+            }(i);//预先执行函数写法
+            //把i当成参数传进去
+         }
+         return result;
+      }
+      outer()
+
+    </script>
+</body>
+</html>

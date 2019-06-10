@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+
+  <body>
+      
+
+
+    <script>
+      // 找质数
+      var prime = function(len) {
+        var i, j;
+        var arr = [];
+        for (i = 1; i < len; i++) {
+          for (j = 2; j < i; j++) {
+            console.log(j);
+            if (i % j === 0) {
+              break;
+              // break ：可以终止循环，继续执行循环之后的代码（如果循环之后有代码的话）。
+              // continue： 终止当前的循环，然后从下一个值继续运行。
+              // continue语句只能用在while语句、do/while语句、for语句、或者for/in语句的循环体内，在其它地方使用都会引起错误！
+            }
+          }
+          if (i <= j && i != 1) {
+            arr.push(i);
+          }
+        }
+        return arr;
+      };
+      console.log(prime(10));
+    </script>
+    <script>
+      // console.log(c);//输出undefind
+      // // alert(d);报错
+      // var c = 3;
+      // function test() {
+      //     var a = 1;
+      //     b = 2;
+      //     console.log(c)//输出三
+      // }
+      // console.log(c);//输出3
+      // test();
+
+      // function test() {
+      //     var a
+      //     console.log(a);//声明未赋值输出undefine
+      //     a = 1;
+      //     console.log(a);//1
+      // }
+      // // console.log(a);// 提示报错  a is not defined
+
+      // test();
+      //console.log(a);// 提示报错  a is not defined
+
+      // var i = 1;
+      // if (i == 1) {
+      //     var b = 2;
+      // }
+      // alert(b);//输出2
+      // for (var j = 0; j <= 2; j++) {
+      //     var c = 3;
+      //     console.log(c);// 3 3 3
+      // }
+      // console.log(c);//输出3
+
+      a = 10;
+      (function() {
+        console.log(a);
+        var a = 1;
+      })();
+
+      // b = 5;
+      // (function () {
+      //     var a = undefined;
+      //     a = b = 5
+      // })();
+      // console.log(b);// 5
+      //console.log(a); //这句报错  提示a is not defined   这里是找不到闭包函数里边的a的
+    </script>
+    <script>
+      // var a = 5;
+
+      // document.write(isNaN("aaa123")); //true
+
+       document.write(isNaN(a));  //flase
+
+      // document.write(isNaN("123")); //flase,这isNaN判断是否为数字，不根据数据类型来判断
+
+      // var k = 4;
+      // window.onload = function () {
+
+      //     var k = 1;
+      //     function t1() {
+      //         var k = 2;
+
+      //         function test() { return k; }
+      //         console.info(test()); // 弹出 2
+
+      //         var test = function () { return k; };
+      //         console.info(test());  // 弹出 2
+
+      //         // var test = new Function("return k;");  // 每次执行的时候，动态的new，顶级作用域，无法获得局部变量
+      //         // console.info(test());  // 弹出 4
+
+      //     }
+      //     t1();
+      // };
+
+      function f() {
+        return 1;
+      }
+      console.log(f()); // 第四个函数把第一个函数覆盖  // 4
+      var f = new Function("return 2;");
+      console.log(f()); // 第二个函数把第四个函数覆盖  2
+      var f = function() {
+        return 3;
+      };
+      console.log(f()); // 第三个函数把第二个函数覆盖3
+      function f() {
+        return 4;
+      }
+      console.log(f()); // 第四个函数已经被覆盖3
+      var f = new Function("return 5;");
+      console.log(f()); // 第五个函数把第三个函数覆盖5
+      var f = function() {
+        return 6;
+      };
+      console.log(f()); // 第六个函数把第五个函数覆盖6
+      // 4 2 3 3 5 6
+    </script>
+    <script>
+      // function f() { return 4; }
+      // var f = function () { return 2 };
+      // function f() { return 4; }
+      // console.log(f());
+
+      var f = function() {
+        return 3;
+      };
+      console.log(f());
+      var f = new Function("return 2;");
+      console.log(f()); // 第二个函数把第四个函数覆盖
+
+      // (function (x, y) {
+      //     alert(x + y);
+      //     return x + y;
+      // }(3, 4));
+
+      // (function (x, y) {
+      //     alert(x + y);
+      //     return x + y;
+      // })(3, 4);
+
+      (function() {
+        console.log("some script code");
+      })();
+
+      var a = (function(s) {
+        return s;
+      })("abc");
+      console.log(a);
+      var b = function(s) {
+        return s;
+      };
+      console.log(b("abc"));
+    </script>
+
+    <script>
+      window.onload = function() {
+        var arr = ["m", "", 1, NaN, 20, 3, "20Px", 56, 18];
+        var result = 0; //定义数据累加的值，定义变量的时候需要赋值， 不然 数字累加 会出现NaN （因为进行了非法操作）
+        var temp = [];
+        for (var i = 0; i < arr.length; i++) {
+          if (
+            Object.prototype.toString.call(arr[i]) === "[object Number]" &&
+            isNaN(arr[i]) == false
+          ) {
+            //console.log(arr[i])
+            temp.push(arr[i]);
+            result += arr[i];
+          }
+        }
+
+        console.log(result);
+      };
+    </script>
+
+    <script>
+     window.onload = function(){
+       function getObj(){
+
+       //https://blog.csdn.net/wdlhao/article/details/79079660  参考链接
+        var Shref ='http://www.runoob.com/jquery/misc-trim.html?channelid=12333&name=xiaoming&age=23';  //window.location.href;//
+        var arr = Shref.split('?');
+        if(arr[0] ==  Shref){
+          return '';
+        }
+        var temp = arr[1].split('&');  //[channelid=12333  name=xiaoming  age=23]
+        var obj = {};
+        for(var i=0; i<temp.length; i++){
+            var arg = temp[i].split('=')
+            obj[arg[0]]= arg[1]
+        }
+        
+        return obj;
+        }
+        var href = getObj();//这加括号是 立即执行
+        
+       console.log(href['name']);  //xiaoming
+
+      //  另一种方式
+      var href = getObj
+        console.log(href().name);  //xiaoming
+     }
+
+
+
+
+     function fn(){    console.log("123");
+      }
+      fn();
+      var a=fn;
+      a();
+      var b=function c(){    console.log("234");}
+b();
+c();
+
+
+    
+
+
+   
+  
+
+    </script>
+  </body>
+</html>

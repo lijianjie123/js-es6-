@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Title</title>
+  </head>
+
+  <body>
+    <script>
+      //要实现继承， 先有一个父类
+      function Animal(name) {
+        // 属性
+        this.name = name || "Animal";
+        // 方法
+        this.sleep = function() {
+          console.log(this.name + "睡觉");
+          return "sleep";
+        };
+      }
+//原型下添加方法
+      Animal.prototype.eat = function(food) {
+        console.log(this.name + "正在吃：" + food);
+        return "end";
+      };
+
+// // 1.原型链继承（核心：将父类的实例作为子类的原型）
+//       // 子类
+      // function Cat() {
+      //   //this.abc = "111";
+      // }
+      // // 将父类的实例作为子类的原型
+      // // Cat.prototype.name = "cat"; （如果要新增原型属性和方法，则必须放在new Animal()这样的语句之后执行。）
+      // Cat.prototype = new Animal();  //类式继承
+      // Cat.prototype.name = "cat";
+
+      // //　Test Code
+      // var cat = new Cat();
+      // console.log(cat.name);  // Animal
+      // console.log(cat.eat("fish"));   //打出22行  Animal正在吃：fish    返回值  为end
+      // console.log(cat.sleep());  // 打16行  Animal睡觉    打 40行  的返回值 sleep
+      // console.log(cat instanceof Animal); //true
+      // console.log(cat instanceof Cat); //true
+      // console.log(cat.abc);  // undefined
+
+      // var cat2 = new Cat();
+      // console.log(cat2.name); // cat
+
+
+
+// // 2.构造继承  核心：使用父类的构造函数来增强子类实例，等于是复制父类的实例属性给子类（没用到原型）
+
+// function Cat(name){
+  //继承父类
+/*
+* Animal.call(this)是构造函数继承的精华，call可以改变函数的作用域环境，
+* 因此在子类中对父类调用这个方法，就是将子类的变量在父类中执行一遍，由于父类中是给
+* this绑定属性的，因此子类也就继承了父类的公有属性，由于这种方法没有涉及原型prototype
+* 所以父类原型方法不会被子类继承，如果想要被继承就必须放在构造函数中，这样创建出来
+* 的每个实例都会单独拥有一份而不能共用，这样就违背了代码复用的原则。
+* 为了综合这两种模式的优点，有了组合式继承。
+*/
+
+//   Animal.call(this);  //本质是在子类中，调用父类构造函数，从而让子类拥有父类的属性和方法
+//   this.name = name || 'Tom';
+// }
+
+// var cat = new Cat('猫');
+// console.log(cat.name); // 猫  
+// console.log(cat.sleep());  //猫睡觉   sleep
+// // console.log(cat.eat()); //cat.eat is not a function  // 只能继承父类的实例属性和方法，不能继承原型属性/方法
+// console.log(cat instanceof Animal); // false  实例并不是父类的实例，只是子类的实例
+// console.log(cat instanceof Cat); // true
+
+
+// // 3.组合继承
+// // 核心:通过调用父类构造，
+
+function Cat(name){
+  //console.log(this)
+  Animal.call(this);  
+//  Animal.call(this)是构造函数继承的精华，call可以改变函数的作用域环境，
+//  因此在子类中对父类调用这个方法，就是将子类的变量在父类中执行一遍，由于父类中是给
+//  this绑定属性的，因此子类也就继承了父类的公有属性
+  console.log(this)
+  this.name = name || 'Tom';
+  console.log(this)
+}
+
+Cat.prototype = new Animal();
+//需要修复构造函数指向
+Cat.prototype.constructor = Cat;
+// Test Code
+var cat = new Cat( 'gou');
+console.log(cat.name);
+console.log(cat.sleep());
+console.log(cat.eat('骨头'));
+console.log(cat instanceof Animal); // true
+console.log(cat instanceof Cat); // true
+
+
+// miaov  类式继承
+// function Cat(name){
+//   Animal.call(this);  //子类对父类‘属性‘的继承
+//   //console.log(this)
+//   this.name = name || 'Tom';
+//  // console.log(this)
+// }
+
+
+// var F = function(){} //子类对父类方法的继承
+// F.prototype = Animal.prototype;
+// Cat.prototype = new F();
+// //需要修复构造函数指向
+// Cat.prototype.constructor = Cat;
+// // Test Code
+// var cat = new Cat();
+// console.log(cat.name);
+// console.log(cat.sleep());
+
+    </script>
+  </body>
+</html>

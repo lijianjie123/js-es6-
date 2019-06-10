@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>深浅拷贝</title>
+</head>
+
+<body>
+<script>
+    // function deepClone(obj){
+    //     let _obj = JSON.stringify(obj), //  把json对象转换为字符串格式
+    //         objClone = JSON.parse(_obj);
+    //     return objClone
+    // }    
+    // let a=[0,1,[2,3],4],
+    //     b=deepClone(a);
+    // a[0]=1;
+    // a[2][0]=1;
+    // console.log(a,b);
+
+
+//浅拷贝  参考https://www.cnblogs.com/huangshikun/p/6510482.html
+//  var a = {
+//      key1:'11111'
+//  }
+// function Copy(p){
+//     var c = {};
+//     for(var i in p){
+//         c[i] = p[i];
+//     }
+//     return c;
+// }
+// a.key2 = ['小辉','小辉']
+// var b = Copy(a);
+
+// b.key3 = '333';
+// alert(b.key1);
+// alert(b.key3);
+// alert(a.key3)
+
+
+// 深拷贝
+var a = {
+     key1:'11111',
+     sz:['1','2','3']
+ }
+function Copy(p,c){
+    var c = c || {};
+    for(var i in p){
+        console.log(typeof p[i])
+        if(typeof p[i] === 'object'){
+            c[i] = (p[i].constructor === Array) ? [] : {};
+            Copy(p[i], c[i]);
+        }else{
+            c[i] = p[i];
+        }
+    }
+    return c;
+}
+
+a.key2 = ['小辉','小辉'];
+var b = {};
+b = Copy(a,b);
+b.key2.push('大辉');
+console.log(b.key2);  //["小辉", "小辉", "大辉"]
+console.log(a.key2) //["小辉", "小辉"]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+</script>
+</body>
+
+</html>

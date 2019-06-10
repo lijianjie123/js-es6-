@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    // var a1 = function myF(){
+    //     var a = 4;
+    //     return a*a
+    // }
+    // console.log(a1())  //16
+
+    // var a = 4;
+    // var a1 = function myF(){
+        
+    //     return a*a
+    // }
+    // console.log(a1()) //16
+
+
+// var counter = 0;
+
+//  function add() {
+//      console.log('-------'  + counter)
+//     return counter += 1;
+//  }
+  
+//  console.log(add());
+//  console.log(add());
+//  console.log(add());
+
+
+// function add() {
+//     var counter = 0;
+//     function plus() {counter += 1;}
+//     plus();    
+//     return counter; 
+// }
+
+// console.log(add());
+// console.log(add());
+// console.log(add());
+
+
+
+var add = (function () {
+    var counter = 0;
+    console.log('-------'  + counter)
+    return function () {
+        console.log('-------'  + counter)
+        return counter += 1;
+    }
+})();
+console.log(add());
+console.log(add());
+console.log(add());
+
+
+// 函数作为参数被传递
+
+var max = 10;
+fn = function (x){
+    if(x>max){
+        console.log(x);
+    }
+}
+
+var num = (function(f){
+    var max = 100;
+    f(15)
+})(fn)
+
+console.log(num)
+
+
+
+var obj = {};
+console.log(obj.__proto__)
+console.log(Object.prototype)
+console.log(Array.prototype)
+
+
+
+
+
+
+//     var add = 
+//         //console.log(
+//         function(){
+//         var num = 0;
+//         console.log(num);
+//             return function(){
+//                 return num+=1;
+//             }
+//         }//)
+    
+
+    
+//     console.log(add());
+//     //console.log(add());
+//    // console.log(add());
+</script>
+
+</body>
+</html>
