@@ -15,28 +15,7 @@
         <li>aaa</li>
     </ul>
     <script>
-    const a = {b:123, c: 456};
-    const b = {name:'b'};
-    const c = {name:'c'};
-
-    //const {b, c} = {b:123, c: 456};
-    a[b] = 123;
-   a[c] = 456  ;
-    // a = {b:123, c: 456}
-
-    //var {b,c} = {b:123, c: 456}
-
-     console.log(a[b] === 456);
-     console.log(a[c] === 456);
-     console.log(a[b] + a[c] === 578);
-     console.log(a[b] + a[c] === 912);
-
-
-var o = {p: 42, q: true};
-var {p, q} = o;
-
-console.log(p); // 42
-console.log(q); // true
+   
 
 
 var lis= document.getElementsByTagName('li'); 
@@ -72,6 +51,14 @@ var lis= document.getElementsByTagName('li');
          return result;
       }
       outer()
+
+
+
+var o = {p: 42, q: true};
+var {p, q} = o;
+
+console.log(p); // 42
+console.log(q); // true
 
     </script>
 </body>

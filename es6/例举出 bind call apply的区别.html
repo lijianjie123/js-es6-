@@ -30,7 +30,30 @@
         // 都可以利用后续参数传参
         // bind 是返回对应函数， 便于稍后调用， apply 。call 是立即调用
 
+//https://www.codingke.com/article/5346  43到javascript面试题 - jasonzds的博客 - CSDN博客
 
+// 33. 下面代码的输出是什么?
+
+const person = { name: "Lydia" };
+
+function sayHi(age) {
+  console.log(`${this.name} is ${age}`);
+}
+
+sayHi.call(person, 21);
+sayHi.bind(person, 21);
+
+// sayHi.bind(person, 21)()// 这样就能bind调用了
+
+// A: undefined is 21 Lydia is 21
+// B: function function
+// C: Lydia is 21 Lydia is 21
+// D: Lydia is 21 function
+// 答案: D
+
+// 使用两者，我们可以传递我们想要this关键字引用的对象。 但是，.call方法会立即执行！
+
+// .bind方法会返回函数的拷贝值，但带有绑定的上下文！ 它不会立即执行。
 
     </script>
 </body>

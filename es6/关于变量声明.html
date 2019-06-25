@@ -34,7 +34,84 @@
         fun()
         console.log(x)  // 这里肯定是不能访问的  因为不存在全局变量x，
         // 但是如果 把函数中的var x 去掉  就能访问到了， 因为x=3变成了全局变量 （不加var 的变量一般被当做全局变量， 具有全局作用域）
-    </script>
+   
+   
+// 9. 下面代码的输出是什么?
+
+let greeting;
+greetign = {}; // Typo!
+console.log(greetign);
+// A: {}
+// B: ReferenceError: greetign is not defined
+// C: undefined
+// 答案: A
+
+// 控制台会输出空对象，因为我们刚刚在全局对象上创建了一个空对象！ 
+// 当我们错误地将greeting输入为greetign时，
+// JS解释器实际上在浏览器中将其视为global.greetign = {}（或window.greetign = {}）。
+
+// 为了避免这种情况，我们可以使用“use strict”。 这可以确保在将变量赋值之前必须声明变量。
+        
+
+
+   
+// 20. 下面代码的输出是什么?
+
+function getAge() {
+  "use strict";
+  age = 21;
+  console.log(age);
+}
+
+getAge();
+// A: 21
+// B: undefined
+// C: ReferenceError
+// D: TypeError
+// 答案: C
+
+// 使用“use strict”，可以确保不会意外地声明全局变量。 
+// 我们从未声明变量age，因为我们使用`use strict'，它会引发一个ReferenceError。 
+// 如果我们不使用“use strict”，它就会起作用，因为属性age会被添加到全局对象中。
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   </script>
+
+
+
+
+
+
+
 
 
 </html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+//https://www.codingke.com/article/5346  43到javascript面试题 - jasonzds的博客 - CSDN博客
+
+// const a = {};
+// const b = { key: "b" };
+// const c = { key: "c" };
+
+// //a[b] = 123;
+// //a[c] = 789;
+ 
+// console.log(a[b]);
+
+// 对象键自动转换为字符串。我们试图将一个对象设置为对象a的键，其值为123。
+
+// 但是，当对象自动转换为字符串化时，它变成了[Object object]。 
+// 所以我们在这里说的是a["Object object"] = 123。 然后，我们可以尝试再次做同样的事情。 
+// c对象同样会发生隐式类型转换。那么，a["Object object"] = 456。
+
+// 然后，我们打印a[b]，它实际上是a["Object object"]。 我们将其设置为456，因此返回456。
+
+
+
+const a = {};
+const b = {name:'b'};
+const c = {name:'c'};
+
+
+a[b] = 123;
+a[c] = 456  ;
+console.log(b.toString()) //[object Object]
+// 对象键自动转换为字符串  // console.log(b.toString())
+// 此时的a[b] a[c]  都是 a[object Object] = 456
+
+console.log(a[b] === 456); //true
+console.log(a[c] === 456); //true
+console.log(a[b] + a[c] === 578); //false
+console.log(a[b] + a[c] === 912); //true
+
+
+
+</script>
+</body>
+
+</html>

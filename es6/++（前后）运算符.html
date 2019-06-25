@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+//https://www.codingke.com/article/5346  43到javascript面试题 - jasonzds的博客 - CSDN博客
+// 下面代码的输出是什么?
+
+// let number = 0;
+// console.log(number++);
+// console.log(++number);
+// console.log(number);
+// A: 1 1 2
+// B: 1 2 2
+// C: 0 2 2
+// D: 0 1 2
+// 答案: C
+//后缀一元运算符++：
+// 返回值（返回0）
+// 增加值（数字现在是1）
+// 前缀一元运算符++：
+
+// 增加值（数字现在是2）
+// 返回值（返回2）
+
+
+
+
+            let number = 0;
+            console.log(number++) // 0 (先赋值 后运算)
+            console.log(number) // 1 
+
+            // if(number == 0){
+            //     console.log('if')
+            // }else{
+            //     console.log('else')
+            // }
+
+
+
+
+            // let number = 0;
+            // console.log(++number) // 1 (先运算  后赋值 )
+            // console.log(number) // 1 
+
+
+
+
+console.log((() => 0)())
+
+
+</script>
+</body>
+
+</html>
