@@ -69,17 +69,46 @@ console.log(b.key2);  //["小辉", "小辉", "大辉"]
 console.log(a.key2) //["小辉", "小辉"]
 
 
+// 目前实现深拷贝的方法不多，主要是两种：
+
+// 利用 JSON 对象中的 parse 和 stringify
+// 利用递归来实现每一层都重新创建对象并赋值
+
+
+var person='{"name":"zhangsan","sex":"男","age":"24"}';//json字符串
+console.log(person)
+console.log(typeof person)
+
+console.log(JSON.parse(person).name)
 
 
 
 
+var foo = 'bar';
+
+var obj = {
+  foo: 1,
+  bar: 2
+};
+
+obj.foo  // 1
+obj[foo]  // 2   其实就是 obj['bar']
+console.log(obj[foo] == obj['bar'] )  // true
 
 
+function add(x, y) {
+  return x + y;
+}
 
+// 将函数赋值给一个变量
+var operator = add;
 
-
-
-
+// 将函数作为参数和返回值
+function ab(op){
+  return op;
+}
+console.log(ab(add)(1, 1))
+// 2
 
 
     

@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
-    <script src="vue.min.js"></script>
+    <!-- <script src="vue.min.js"></script> -->
 </head>
 
 <body>
@@ -232,6 +232,59 @@
     var arr = ['0','1','2','3']
     arr.splice(3,1,'a')
     console.log(arr)
+
+
+
+
+
+// for in 遍历数组会把 非整数的键名 也读取到
+var a = [1, 2, 3];
+a.foo = 88;
+
+for (var key in a) {
+  console.log(key);
+}
+console.log(a['foo'])
+
+
+
+
+
+//将类数组 转为真正的数组方法 
+function args() { return arguments }
+var arrayLike = args('a', 'b');
+console.log(arrayLike)
+Array.prototype.slice.call(arrayLike)
+
+
+
+
+function print(value, index) {
+  console.log(index + ' : ' + value);
+}
+
+Array.prototype.forEach.call(arrayLike, print);
+
+
+// 且运算 &&    如果第一个运算子的布尔值为 true  则返回第二个运算子的值 
+// 如果 第一个运算子的布尔值为false 则直接返回第一个运算子的值
+var x = 1;
+console.log((1 - 1) && ( x += 1)) // 0
+console.log(x) // 1
+
+
+
+// 或运算符（||）也用于多个表达式的求值。它的运算规则是：
+//              如果第一个运算子的布尔值为true，则返回第一个运算子的值，且不再对第二个运算子求值；
+// 如果第一个运算子的布尔值为false，则返回第二个运算子的值。
+
+
+console.log(true ? 'T' : 'F');
+
+var x = 1;
+var arr = [];
+var y = ((arr.length <= 0) || (arr[0] === undefined)) ? x : arr[0];
+console.log(y) //1
 </script>
 
 

@@ -10,36 +10,21 @@
 
 <body>
 
-        
-
-
-
-
-
-
-
-
     <script>
-        
-        // 概念“{}”中间的部分都是块级作用域ex：for while if ，js中没有块级作用域，但是可以用闭包实现类似功能。
+//   https://wangdoc.com/javascript/types/function.html      
+// 闭包的最大用处有两个，一个是可以读取函数内部的变量，
+//另一个就是让这些变量始终保持在内存中，即闭包可以使得它诞生环境一直存在。
+function createIncrementor(start) {
+  return function () {
+    return start++;
+  };
+}
 
-        // 闭包 ： 当一个函数的返回值是另外一个函数，而返回的那个函数如果调用了其父函数内部的其他变量，如果返回的函数在外部被执行，就产生了闭包
-        var count = 10; //全局作用域 标记为flag1
-        function add() {
-            var count = 0; //函数全局作用域 标记为flag2
-            return function() {
-                count += 1; //函数的内部作用域
-               console.log(count)
-            }
-        }
-        console.log(add())
-        var s = add()
-        //s(); //输出1
-       // s(); //输出2
-        if (s() === '11') {alert('2')
-        }else{
-            alert('0')
-        }
+var inc = createIncrementor(5);
+console.log(inc)
+console.log(inc()) // 5
+console.log(inc()) // 6
+console.log(inc()) // 7
     </script>
 </body>
 
