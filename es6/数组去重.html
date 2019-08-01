@@ -68,6 +68,70 @@
 
 
 
+
+
+
+
+function arrConcatSort(arr1,arr2){
+    var arr3 = arr1.concat(arr2);
+    // es6
+    var arr4 = arr3.filter((item, index, self)=>{
+        return self.indexOf(item) == index ;
+    });
+
+    // es5
+    // var arr4 = [];
+    // for(var i= 0 ; i<arr3.length; i++){
+    //     if(arr4.indexOf(arr3[i]) === -1){ //如果没找到就会返回-1；
+    //         arr4.push(arr3[i])
+    //     }
+    // }
+
+    console.log(arr4)
+
+    arr4.sort(function(a,b){
+        return a-b
+    })
+    console.log(arr4)
+}
+
+arrConcatSort([222,2,3,41],[3,4,5,6])
+
+
+
+
+var splicearr = [1,2,3,4]
+
+ console.log(splicearr.splice(1,1,2,3,4) ) //2  返回的结果是  删除的值
+
+console.log(splicearr) //[1, 2, 3, 4, 3, 4]  打印原数组  才是改变后的原数组
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     </script>
 </body>
 

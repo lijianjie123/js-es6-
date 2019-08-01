@@ -47,6 +47,56 @@
     <script type="text/javascript" src="http://test.cdn.gamesprite.me/plugins/jquery-1.8.2.min.js?2018122631"></script>       
 
 <script>
+
+
+    // https://developer.mozilla.org/zh-CN/docs/Web/API/Window/localStorage
+    // 当前域名下的本地 Storage 对象，
+    // 并通过 Storage.setItem() 增加了一个数据项目。
+//localstorage.setItem('myCat', 'Tom');
+
+// 该语法用于读取 localStorage 项
+
+//localStorage.getItem('myCat');
+
+// 该语法用于移除 localStorage 项，
+//localStorage.removeItem('myCat');
+
+// 该语法用于移除所有的 localStorage 项,
+
+//localStorage.clear();
+
+
+
+var temp = localStorage.getItem('isopen')  //===>  存在：'isclose'  不存在：undefined
+
+
+if(!temp){ //不存在  就设置一个 
+    console.log(false)
+    localStorage.setItem('isopen','open')
+}else{
+    // 存在就读取
+    console.log(temp)
+    let val = localStorage.removeItem('isopen')
+    console.log(localStorage.getItem('isopen'))
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 //    仿一下京东官网顶部的广告关闭，效果为第一次进入官网会出现广告，然后点击关闭，
 // 刷新网页不会再显示广告，但是当清除localStorage存入的数据，刷新网页会再显示广告。    
 function haxi(){
@@ -91,7 +141,7 @@ function myLocalStorage(){
 
 
 }
-myLocalStorage()
+// myLocalStorage()
         
 </script>
 </body>
