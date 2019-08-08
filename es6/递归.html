@@ -64,18 +64,30 @@
 //扁平化数据
 // console.log(data.flat(Infinity))
 
-// function flat(items){
-//  let newArr = [];
-//  items.forEach(item=>{
-//    newArr.push(item);
-//    //递归
-//    if(Array.isArray(item.children)){
-//      newArr = newArr.concat(flat(item.children))
-//    }
-//  })
-//  return newArr;
-// }
-// console.log(flat(data))
+function flat(items){
+ let newArr = [];
+ items.forEach(item=>{
+   newArr.push(item);
+   //递归
+   if(Array.isArray(item.children)){
+     newArr = newArr.concat(flat(item.children))
+   }
+ })
+ return newArr;
+}
+console.log(flat(data))
+
+function flat(items){
+  let newarr = [];
+  items.forEach(item => {
+    newarr.push(item)
+    if(Array.isArray(item.children)){
+      newarr = newarr.concat(flat(item.children))
+    }
+    
+  });
+  return newarr
+}
 
 
 //reduce 累加
@@ -100,6 +112,8 @@ let arr = [{
             title: "我的照片"
         }]
     }];
+
+    
 function flat(items){
 // prev  上一次处理的结果  ，current 当前循环过程中的值 
   return items.reduce( (pre, cur) => {
@@ -109,6 +123,12 @@ function flat(items){
 }
 let newItems = flat(arr);
 console.log(newItems);
+
+
+
+
+
+
 
 
 
@@ -352,31 +372,7 @@ var item = [1,2,3,4,5,6,7,8];
 
 
 
-//  解构赋值
-const a = {};
-const b = {name :'b'};
-const c = {name :'c'};
 
-a[b] = 123;
-a[c] = 456;
-
-
-b.name = b;
-c.name = c
-let {} = a;
-
-
-
-
-
-
-// // console.log(b.name)
-// // console.log(c.name)
-
-// console.log(a[b]===456)
-// console.log(a[c]===456)
-// console.log(a[b] + a[c] == 578)
-// console.log(a[b]+a[c] === 912)
 
 
     </script>

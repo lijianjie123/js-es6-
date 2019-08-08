@@ -77,11 +77,6 @@
 
 
 
-
-
-
-
-
         // 回调函数：把函数A当做参数传递给另一个函数B调用， 那么A就是回调函数
 
         var test = 'aaaaa';
@@ -97,6 +92,47 @@
         }
 
         B(5, a);
+
+
+
+
+
+
+
+// const promise = new Promise((resolve, reject) => {
+//   console.log(1);
+//   resolve(5);
+//   console.log(2);
+// }).then(val => {
+//   console.log(val);
+// });
+
+// promise.then(() => {
+//   console.log(3);
+// });
+
+// console.log(4);
+
+// setTimeout(function() {
+//   console.log(6);
+// });
+
+
+
+var a = {
+  i: 1,
+  toString() {
+    return a.i++;
+  }
+}
+console.log(a)
+
+if( a == 1 && a == 2 && a == 3 ) {
+  console.log(1);
+}
+
+
+
 
 
     </script>

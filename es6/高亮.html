@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="input">
+        <input type="text" oninput="search(event)">
+        <ul class="options"></ul>
+        
+    </div>
+    
+    <script>
+        const list = ['上海','上海市','上海海昌海洋公园','上海市徐汇区','上海自来水来自海上'];
+    
+        function getvalue(val){
+          var options = document.querySelector('.options');
+          list.forEach(item =>{
+            if(item.indexOf(val) !== -1){
+              var li = document.createElement('li')
+              var innerHtml = item.replace(val, `<span style="color:red">${val}</span>`);
+              console.log(innerHtml)
+              li.innerHTML = innerHtml
+              options.appendChild(li)
+            }
+           
+          })
+
+          if(!val){
+            options.innerHTML = ''
+          }
+          
+
+          
+
+        }
+        function search(e){
+          var value = e.target.value
+          getvalue(value)
+          
+        }
+    </script>
+</body>
+
+</html>

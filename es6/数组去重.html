@@ -12,123 +12,183 @@
     <script>
         // 有一个大的数组 var a = ['1'.....]  a的长度是100， 内容填充随机整数的字符串，先构造函数  然后去重
 
-        // 构造函数
-        getNum(100)
-        function getNum(count) {
-            var tempNum = [];
-            for (var i = 0; i < 100; i++) {
-                var random = parseInt(Math.random() * count).toString();
-                tempNum.push(random)
-            }
-            console.log(tempNum);
-            //排序
-            console.log('升序' + tempNum.sort(function (a, b) {
-                return a - b;  // 升序
-            }))
-            console.log('降序' + tempNum.sort(function (a, b) {
-                return b - a;  //降序
-            }))
+//         // 构造函数
+//         getNum(100)
+//         function getNum(count) {
+//             var tempNum = [];
+//             for (var i = 0; i < 100; i++) {
+//                 var random = parseInt(Math.random() * count).toString();
+//                 tempNum.push(random)
+//             }
+//             console.log(tempNum);
+//             //排序
+//             console.log('升序' + tempNum.sort(function (a, b) {
+//                 return a - b;  // 升序
+//             }))
+//             console.log('降序' + tempNum.sort(function (a, b) {
+//                 return b - a;  //降序
+//             }))
+//         }
+
+
+
+
+
+//         var a = [];
+//         for (var i = 0; i < 100; i++) {
+//             var b = parseInt(Math.random() * 100).toString();
+//             a.push(b);
+//         }
+//         console.log(a)
+
+//         //去重 es6
+//         var arr = a.filter(function (item, index, self) {
+//             return self.indexOf(item) == index;
+//         })
+//         console.log(arr)
+
+//         // //es5去重
+//         var arr = [];
+//         //var a = ['a', 'b', 'a', 'c', 'a', 'a'];
+//         for (var i = 0; i < a.length; i++) {
+//             if (arr.indexOf(a[i]) === -1) {//indexof 查找某一项‘如：1’  在新数组arr中的下标，  如果没找到就会返回-1；
+//                 arr.push(a[i])
+//             }
+//         }
+//         console.log(arr)
+
+//         var arr1 = [];
+//         for (var i = 0; i < a.length; i++) {
+//             if (a.indexOf(a[i]) == i) {
+//                 arr1.push(a[i])
+//             }
+//         }
+//         console.log(arr1)
+
+
+
+
+
+
+
+
+// function arrConcatSort(arr1,arr2){
+//     var arr3 = arr1.concat(arr2);
+//     // es6
+//     var arr4 = arr3.filter((item, index, self)=>{
+//         return self.indexOf(item) == index ;
+//     });
+
+//     // es5
+//     // var arr4 = [];
+//     // for(var i= 0 ; i<arr3.length; i++){
+//     //     if(arr4.indexOf(arr3[i]) === -1){ //如果没找到就会返回-1；
+//     //         arr4.push(arr3[i])
+//     //     }
+//     // }
+
+//     console.log(arr4)
+
+//     arr4.sort(function(a,b){
+//         return a-b
+//     })
+//     console.log(arr4)
+// }
+
+// arrConcatSort([222,2,3,41],[3,4,5,6])
+
+
+
+
+// var splicearr = [1,2,3,4]
+
+//  console.log(splicearr.splice(1,1,2,3,4) ) //2  返回的结果是  删除的值
+
+// console.log(splicearr) //[1, 2, 3, 4, 3, 4]  打印原数组  才是改变后的原数组
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+function tempNumber(num){
+    var temp1 = [];
+    var temp2 = [];
+    var temp3 = [];
+    var temp4 = [];
+
+    
+    for(var i=0; i<10; i++){
+        var number = parseInt(Math.random()*20)
+        if(temp1.indexOf(number) == -1 ){
+            temp1.push(number)
+        }else{
+            return false
         }
+        
 
 
-
-
-
-        var a = [];
-        for (var i = 0; i < 100; i++) {
-            var b = parseInt(Math.random() * 100).toString();
-            a.push(b);
-        }
-        console.log(a)
-
-        //去重 es6
-        var arr = a.filter(function (item, index, self) {
-            return self.indexOf(item) == index;
-        })
-        console.log(arr)
-
-        // //es5去重
-        var arr = [];
-        //var a = ['a', 'b', 'a', 'c', 'a', 'a'];
-        for (var i = 0; i < a.length; i++) {
-            if (arr.indexOf(a[i]) === -1) {//indexof 查找某一项‘如：1’  在新数组arr中的下标，  如果没找到就会返回-1；
-                arr.push(a[i])
-            }
-        }
-        console.log(arr)
-
-        var arr1 = [];
-        for (var i = 0; i < a.length; i++) {
-            if (a.indexOf(a[i]) == i) {
-                arr1.push(a[i])
-            }
-        }
-        console.log(arr1)
-
-
-
-
-
-
-
-
-function arrConcatSort(arr1,arr2){
-    var arr3 = arr1.concat(arr2);
-    // es6
-    var arr4 = arr3.filter((item, index, self)=>{
-        return self.indexOf(item) == index ;
-    });
-
-    // es5
-    // var arr4 = [];
-    // for(var i= 0 ; i<arr3.length; i++){
-    //     if(arr4.indexOf(arr3[i]) === -1){ //如果没找到就会返回-1；
-    //         arr4.push(arr3[i])
-    //     }
-    // }
-
-    console.log(arr4)
-
-    arr4.sort(function(a,b){
+    }
+    temp1.sort((a,b)=>{
         return a-b
     })
-    console.log(arr4)
+    console.log(temp1)
+
 }
 
-arrConcatSort([222,2,3,41],[3,4,5,6])
-
-
-
-
-var splicearr = [1,2,3,4]
-
- console.log(splicearr.splice(1,1,2,3,4) ) //2  返回的结果是  删除的值
-
-console.log(splicearr) //[1, 2, 3, 4, 3, 4]  打印原数组  才是改变后的原数组
 
 
 
 
 
+tempNumber()
 
 
 
 
+function change(str){
+    var arr = str.split('');
+    return arr.map((item)=>{
+        return item === item.toUpperCase() ? item.toLowerCase() : item.toUpperCase()
+    }).join('')
+
+    
+
+}
+
+console.log(change('AbCd'))
 
 
 
+//var strr = 
+// function findstr(strr, str){
+//     if(strr.indexOf(str) !== -1){
+//         var num = strr.split('').map((item,index)=>{
+//             if(item == "@"){
+//                 return index
+//             }
+            
+//         })
+//         console.log(num)
+//         var qq = num.filter( item =>{
+//             return item != undefined
+//         }).toString()
+//        console.log(qq)
+//     }
 
+    
+// }
 
-
-
-
-
-
-
-
-
-
-
+// findstr("abcdefrgt", 'def')
 
 
 

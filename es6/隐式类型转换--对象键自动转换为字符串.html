@@ -27,7 +27,7 @@
 // 所以我们在这里说的是a["Object object"] = 123。 然后，我们可以尝试再次做同样的事情。 
 // c对象同样会发生隐式类型转换。那么，a["Object object"] = 456。
 
-// 然后，我们打印a[b]，它实际上是a["Object object"]。 我们将其设置为456，因此返回456。
+// 然后，我们打印a[b]，它实际上是a["Object object"]。这里a[c]会把a[b]覆盖掉。  后来将a["Object object"] = 456设置为456，因此返回456。
 
 
 
@@ -42,11 +42,10 @@ console.log(b.toString()) //[object Object]
 // 对象键自动转换为字符串  // console.log(b.toString())
 // 此时的a[b] a[c]  都是 a[object Object] = 456
 
-console.log(a[b] === 456); //true
+console.log(a[b] === 456); //true  对象类型会调用 toString 方法转换成字符串 [object Object]。这里a[c]会把a[b]覆盖掉。 
 console.log(a[c] === 456); //true
 console.log(a[b] + a[c] === 578); //false
 console.log(a[b] + a[c] === 912); //true
-
 
 
 </script>

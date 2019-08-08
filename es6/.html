@@ -10,7 +10,142 @@
 
 <body>
     <script>
+// var b = 10;
+// (function b() { //所以重点是：非匿名自执行函数，函数名只读。
+//   b = 20;
+//   console.log(b)
+// })()
+// function flat(items){
+//   let newarr = [];
+//   items.forEach(item => {
+//     newarr.push(item)
+//     if(Array.isArray(item.children)){
+//       newarr = newarr.concat(flat(item.children))
+//     }
+    
+//   });
+//   return newarr
+// }
 
+// function int(val){
+//    var val = val.toString()
+//     var newval = [];
+//     val.split('').forEach(item=>{
+//         newval.unshift(item)
+//     })
+//     console.log(newval.join('').toString())
+//     console.log(typeof(newval.join('').toString()))
+// }
+// int(1234)
+
+
+// function myReverse(num){ 
+//   let str = num.toString()
+//   let num2 = parseInt(str.slice(1))
+// //   console.log(num2)
+//   if(str.length >1){
+//     return myReverse(num2) + str[0]
+//   }else {
+//     return str
+//   } 
+// }
+
+// console.log(myReverse(12345))
+
+
+// var a = 10;
+// (function () {
+//     console.log(a)
+//     a = 5
+//     console.log(window.a)
+//     var a = 20;
+//     console.log(a)
+// })()
+
+
+
+
+
+
+
+
+
+
+
+// var arr = [1,[2,3,[4,5]],8]
+// console.log(arr.toString().split(","))
+// function flatten(arr) {
+//    return arr.toString().split(",")
+// }
+// console.log(flatten(arr))
+
+// console.log(Object.prototype)
+
+
+
+
+
+// var obj = {
+//     '2': 3,
+//     '3': 4,
+//     'length': 2,
+//     'splice': Array.prototype.splice,
+//     'push': Array.prototype.push
+// }
+// obj.push(1)
+// obj.push(2)
+// console.log(obj)
+
+
+
+
+let arr1 = [{
+        title: "目录",
+        children: [{
+            title: "我的音乐",
+            children: [{
+                title: "周杰伦",
+                children: [{
+                    title: "发如雪"
+                }]
+            }, {
+                title: "王杰",
+                children: [{
+                    title: "一场游戏一场梦"
+                }]
+            }]
+        }, {
+            title: "我的照片"
+        }]
+    }];
+
+//console.log(Object.prototype.toString.call(arr1) === '[object Array]')
+// var newTemp = [];
+// function fn(arr){
+//     arr.forEach(item => { 
+//          newTemp.push(item.title) 
+//         if(Array.isArray(item.children)){
+           
+//             fn(item.children) 
+//         }
+//     })
+//     console.log(newTemp)
+// }
+// fn(arr1)
+
+
+var newTemp = [];
+function findparents(value,list){
+    var list = arr1;
+    var index = arr1.findIndex(item => {
+        return item.title == value
+        
+    });
+    console.log(index)
+    console.log(newTemp)
+
+}
+findparents("我的照片")// 目录 王杰 
 
 </script>
 </body>

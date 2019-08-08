@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+<script>
+// https://blog.csdn.net/cauyahui/article/details/86569573
+// 1、Number、Boolean、String这三种构造函数生成的基础值的对象形式，通过valueOf转换后会变成相应的原始值。如：
+
+// var num = new Number('123');
+// num.valueOf(); // 123
+
+// var str = new String('12df');
+// str.valueOf(); // '12df'
+
+// var bool = new Boolean('fd');
+// bool.valueOf(); // true
+
+// console.log(Object.prototype)
+
+
+// Date这种特殊的对象，其原型Date.prototype上内置的valueOf函数将日期转换为日期的毫秒的形式的数值。
+
+// var a = new Date();
+// a.valueOf(); // 1515143895500
+
+// 3、除此之外返回的都为this，即对象本身：(有问题欢迎告知)
+
+// var a = new Array();
+// a.valueOf() === a; // true
+
+// var b = new Object({});
+// b.valueOf() === b; // true
+
+
+
+
+// 再来看看toString函数，其转换结果是什么？
+// 对于js的常见内置对象：Date, Array, Math, Number, Boolean, String, Array, RegExp, Function。
+
+// Number、Boolean、String、Array、Date、RegExp、Function这几种构造函数生成的对象，
+// 通过toString转换后会变成相应的字符串的形式，因为这些构造函数上封装了自己的toString方法。如：
+
+// Number.prototype.hasOwnProperty('toString'); // true
+// Boolean.prototype.hasOwnProperty('toString'); // true
+// String.prototype.hasOwnProperty('toString'); // true
+// Array.prototype.hasOwnProperty('toString'); // true
+// Date.prototype.hasOwnProperty('toString'); // true
+// RegExp.prototype.hasOwnProperty('toString'); // true
+// Function.prototype.hasOwnProperty('toString'); // true
+
+// var num = new Number('123sd');
+// num.toString(); // 'NaN'
+
+// var str = new String('12df');
+// str.toString(); // '12df'
+
+// var bool = new Boolean('fd');
+// bool.toString(); // 'true'
+
+// var arr = new Array(1,2);
+// arr.toString(); // '1,2'
+
+// var d = new Date();
+// d.toString(); // "Wed Oct 11 2017 08:00:00 GMT+0800 (中国标准时间)"
+
+// var func = function () {}
+// func.toString(); // "function () {}"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+</body>
+
+</html>

@@ -8,7 +8,7 @@
     <title>Document</title>
     <!-- <script src="vue.min.js"></script> -->
 </head>
-
+<!-- https://www.cnblogs.com/sqh17/p/8529401.html -->
 <body>
     <!-- <script>
         let arr = [1, 2, 3, 4, 5, 6];
@@ -235,6 +235,44 @@
 //使用 Infinity 作为深度，展开任意深度的嵌套数组
 //arr3.flat(Infinity); 
 // [1, 2, 3, 4, 5, 6]
+
+
+// 使用迭代的方式实现 flatten 函数
+var arr=[1,2,3,[4,5],[6,[7,[8]]]]
+/**
+ * 使用递归的方式处理
+ * wrap内保存结果ret 
+ * 返回一个递归函数
+ *
+ * @returns
+ */
+function wrap(){
+    var ret=[];
+    return function flat(a){
+        for(var item of a){
+            if(item.constructor===Array){
+                ret.concat(flat(item))
+            }else{
+                ret.push(item)
+            }
+        }
+        return ret
+    }
+}
+console.log(wrap()(arr));
+
+
+function flat(items){
+// prev  上一次处理的结果  ，current 当前循环过程中的值 
+  return items.reduce( (pre, cur) => {
+    return pre.concat( cur, Array.isArray(cur.children)? flat(cur.children):[] );
+
+  },[]);
+}
+let newItems = flat(arr);
+console.log(newItems);
+
+
 
 
 
