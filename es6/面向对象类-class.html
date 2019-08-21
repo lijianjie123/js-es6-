@@ -43,6 +43,44 @@ var obj=new Person("laotie",88);
 console.log(obj.say());//我的名字叫laotie今年88岁了
 // 1.在类中声明方法的时候，千万不要给该方法加上function关键字
 // 2.方法之间不要用逗号分隔，否则会报错
+
+
+
+
+// 8.下面代码的输出是什么?
+
+class Chameleon{
+    // colorChange方法是静态的。静态方法仅在创建它们的构造函数中存在，并且不能传递给任何子级。
+    static colorChange(newColor){
+
+    this.newColor = newColor;
+
+    }
+
+    constructor({newColor="green"}={}){
+
+    this.newColor = newColor;
+
+    }
+
+}
+
+const freddie = newChameleon({newColor:"purple"});
+
+freddie.colorChange("orange");
+
+// A:orange
+
+// B:purple
+
+// C:green
+
+// D:TypeError
+
+// 答案:D
+
+// colorChange方法是静态的。静态方法仅在创建它们的构造函数中存在，并且不能传递给任何子级。
+// 由于freddie是一个子级对象，函数不会传递，所以在freddie实例上不存在freddie方法：抛出TypeError。
       
     </script>
   </body>

@@ -10,16 +10,7 @@
 
 <body>
 <script>
-    // function deepClone(obj){
-    //     let _obj = JSON.stringify(obj), //  把json对象转换为字符串格式
-    //         objClone = JSON.parse(_obj);
-    //     return objClone
-    // }    
-    // let a=[0,1,[2,3],4],
-    //     b=deepClone(a);
-    // a[0]=1;
-    // a[2][0]=1;
-    // console.log(a,b);
+
 
 
 //浅拷贝  参考https://www.cnblogs.com/huangshikun/p/6510482.html
@@ -73,6 +64,17 @@ console.log(a.key2) //["小辉", "小辉"]
 
 // 利用 JSON 对象中的 parse 和 stringify
 // 利用递归来实现每一层都重新创建对象并赋值
+
+    // function deepClone(obj){
+    //     let _obj = JSON.stringify(obj), //  把json对象转换为字符串格式
+    //         objClone = JSON.parse(_obj);
+    //     return objClone
+    // }    
+    // let a=[0,1,[2,3],4],
+    //     b=deepClone(a);
+    // a[0]=1;
+    // a[2][0]=1;
+    // console.log(a,b);
 
 
 var person='{"name":"zhangsan","sex":"男","age":"24"}';//json字符串

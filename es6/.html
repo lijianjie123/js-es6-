@@ -147,6 +147,25 @@ function findparents(value,list){
 }
 findparents("我的照片")// 目录 王杰 
 
+
+
+const person={name:"Lydia"};
+
+function sayHi(age){
+
+console.log(`${this.name}is${age}`);
+
+}
+
+//sayHi.call(person,21);
+
+sayHi.bind(person,21)();
+
+
+
+
+
+
 </script>
 </body>
 
